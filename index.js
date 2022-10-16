@@ -103,7 +103,7 @@ function addEngineer() {
             name:"name",
         },
         {
-            message:"what is your engineers email address??",
+            message:"what is your engineers email address?",
             name:"email",
         },
         {
@@ -149,8 +149,6 @@ function addIntern() {
     });
 }
 
-initialPrompt()
-
 function compileTeam() {
     const htmlArray = []
     const htmlStart = `
@@ -171,10 +169,12 @@ function compileTeam() {
     </head>
 
     <body>
-        <div class"banner-bar">
+
         <h1>${teamArray[0]}</h1>
         </div>
-        <div class ="card-container"> 
+        <div class="container px-4 py-5" id="feature-3">
+        <div class="row g-4 py-5 row cols-1 row-cols-lg-3">  
+
         `
 
         htmlArray.push(htmlStart);
@@ -183,24 +183,54 @@ function compileTeam() {
 
             let object = `
             <div class = "team-member-card">
-                <div class="card-top">
+                <div class="feature col border border-primary">
                     <h2>${teamArray[i].name}</h2>
                     <h2>${teamArray[i].title}</h2>
             </div>
             <div class="card-bottom">
                 <p>Employee ID: ${teamArray[i].id}</p>
-                <p>Email : <a href="mailto:${teamArray[i].email}>${teamArray[i].email}<a></p>"  
+                <p>Email : <a href="mailto:${teamArray[i].email}">${teamArray[i].email}</a>><p>  
             `
-            
+            //if the selection officeNumber is chosen
+            if(teamArray[i].officeNumber) {
+                object += `
+                <p>${teamArray[i].officeNumber}</p>
+                `
+            }
+            //if the selection github is chosen
+            if(teamArray[i].github) {
+                object += `
+                <p>Github: <a href="http://github.com/${teamArray[i].github}">${teamArray[i].github}</a><p>
+                `
+            }
+            //if the selection school is chosen
+            if(teamArray[i].school) {
+                object += `
+                <p>School: ${teamArray[i].school}</p>
+                `
+            }
             object += `
             </div>
             </div>
             `    
             htmlArray.push(object)
-        
+        }
 
-        
+        const htmlEnd = `
+        </div>
+        </body>
+        </html>
+        `
+        htmlArray.push(htmlEnd);
     
-    
-    
-}}
+        // create the html 
+        fs.writeFile(`./generateHtml/${teamArray[0]}.html`, htmlArray.join(""), function (err) {
+        console.log("the html has been generated.")
+
+        })
+
+}
+
+initialPrompt()
+
+
