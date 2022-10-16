@@ -152,9 +152,55 @@ function addIntern() {
 initialPrompt()
 
 function compileTeam() {
-    console.log(teamArray)
+    const htmlArray = []
+    const htmlStart = `
     
-}
+    <!DOCTYPE html>
+    <html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>${teamArray[0]}</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- CSS only -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <link rel="stylesheet" href="">
+    </head>
 
+    <body>
+        <div class"banner-bar">
+        <h1>${teamArray[0]}</h1>
+        </div>
+        <div class ="card-container"> 
+        `
 
+        htmlArray.push(htmlStart);
 
+        for(let i = 1; i < teamArray.length; i++) {
+
+            let object = `
+            <div class = "team-member-card">
+                <div class="card-top">
+                    <h2>${teamArray[i].name}</h2>
+                    <h2>${teamArray[i].title}</h2>
+            </div>
+            <div class="card-bottom">
+                <p>Employee ID: ${teamArray[i].id}</p>
+                <p>Email : <a href="mailto:${teamArray[i].email}>${teamArray[i].email}<a></p>"  
+            `
+            
+            object += `
+            </div>
+            </div>
+            `    
+            htmlArray.push(object)
+        
+
+        
+    
+    
+    
+}}
