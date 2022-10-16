@@ -39,7 +39,7 @@ function addManager() {
             name:"name",
         },
         {
-            message:"what is the your managers Email?",
+            message:"what is the your managers email address?",
             email:"email",
         },
         {
@@ -54,6 +54,60 @@ function addManager() {
         const email = data.email
         const officeNumber = data.officeNumber
         const teamMember = new Manager(name, id, email, officeNumber)
+        teamArray.push(teamMember)
+        
+    })
+}
+
+// need to make a list function that will let selection of the team memebers 
+
+function addEngineer() {
+    inquirer.prompt([
+        {
+            message:"What is your Engineers name?",
+            name:"name",
+        },
+        {
+            message:"what is your engineers email address??",
+            name:"email",
+        },
+        {
+            message:"What is your engineers Github?",
+            name:"github",
+        }
+    ])
+    .then(function(data) {
+        const name = data.name
+        const id = teamArray.length + 1
+        const email = data.email
+        const github = data.github
+        const teamMember = new Engineer(name, id, email, github)
+        teamArray.push(teamMember)
+    
+    })
+}
+
+function addIntern() {
+    inquirer.prompt([
+        {
+            message:"what is your interns name?",
+            name: "name",
+        },
+        {
+            message:"what is your interns email?",
+            name: "email",
+        },
+        {
+            message:"what is your interns school?",
+            name:"school",
+        }
+    ])
+    .then(function(data) {
+        const name = data.name
+        const id = teamArray.length + 1
+        const email = data.email
+        const school = data.school
+        const teamMember = new Intern(name, id, email, school)
         teamArray.push(teamMember)
     })
 }
