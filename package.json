@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/Jimmybubbles/Team-Profile-Generator/issues"
   },
-  "homepage": "https://github.com/Jimmybubbles/Team-Profile-Generator#readme"
+  "homepage": "https://github.com/Jimmybubbles/Team-Profile-Generator#readme",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {
+    "jest": "^29.2.1"
+  }
 }
