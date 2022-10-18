@@ -5,10 +5,11 @@ const fs = require("fs");
 
 
 //import the worker classes
-const Employee = require("./lib/Employee");
-const Manager = require("./lib/Employee");
+const Employee = require("./lib/Employee")
+const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
+
 
 
 // create a empty array for the data to populate to
@@ -170,10 +171,17 @@ function compileTeam() {
 
     <body>
 
-        <h1>${teamArray[0]}</h1>
-        </div>
-        <div class="container px-4 py-5" id="feature-3">
-        <div class="row g-4 py-5 row cols-1 row-cols-lg-3">  
+    <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4 text-center">${teamArray[0]}</h1>
+      <p class="lead text-center">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    </div>
+    </div>
+
+        
+        
+    <div class="container px-4 py-5" id="feature-3">
+    <div class="row g-4 py-5 row cols-1 row-cols-lg-3">  
 
         `
 
@@ -189,7 +197,7 @@ function compileTeam() {
             </div>
             <div class="card-bottom">
                 <p>Employee ID: ${teamArray[i].id}</p>
-                <p>Email : <a href="mailto:${teamArray[i].email}">${teamArray[i].email}</a>><p>  
+                <p>Email : <a href="mailto:${teamArray[i].email}">${teamArray[i].email}</a><p>  
             `
             //if the selection officeNumber is chosen
             if(teamArray[i].officeNumber) {
