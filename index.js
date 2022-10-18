@@ -166,6 +166,7 @@ function compileTeam() {
         <!-- CSS only -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+            <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
         <link rel="stylesheet" href="">
     </head>
 
@@ -174,7 +175,7 @@ function compileTeam() {
     <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4 text-center">${teamArray[0]}</h1>
-      <p class="lead text-center">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+      <p class="lead text-center">This is the new team for 2022</p>
     </div>
     </div>
 
@@ -190,31 +191,31 @@ function compileTeam() {
         for(let i = 1; i < teamArray.length; i++) {
 
             let object = `
-            <div class = "team-member-card">
+            <div class = "team-member-card text-center">
                 <div class="feature col border border-primary">
                     <h2>${teamArray[i].name}</h2>
                     <h2>${teamArray[i].title}</h2>
             </div>
             <div class="card-bottom">
-                <p>Employee ID: ${teamArray[i].id}</p>
+                <p style="font-family: Trirong,serif;">Employee ID: ${teamArray[i].id}</p>
                 <p>Email : <a href="mailto:${teamArray[i].email}">${teamArray[i].email}</a><p>  
             `
             //if the selection officeNumber is chosen
             if(teamArray[i].officeNumber) {
                 object += `
-                <p>${teamArray[i].officeNumber}</p>
+                <p style="font-family: Trirong,serif;">Office number: ${teamArray[i].officeNumber}</p>
                 `
             }
             //if the selection github is chosen
             if(teamArray[i].github) {
                 object += `
-                <p>Github: <a href="http://github.com/${teamArray[i].github}">${teamArray[i].github}</a><p>
+                <p style="font-family: Trirong,serif;">Github: <a href="http://github.com/${teamArray[i].github}">${teamArray[i].github}</a><p>
                 `
             }
             //if the selection school is chosen
             if(teamArray[i].school) {
                 object += `
-                <p>School: ${teamArray[i].school}</p>
+                <p style="font-family: Trirong,serif;">School: ${teamArray[i].school}</p>
                 `
             }
             object += `
