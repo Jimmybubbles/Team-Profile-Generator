@@ -6,9 +6,9 @@ test("can create Employee init", () => {
 });
 
 test("Can set name through constructor arguments", () => {
-    const name = "james"
+    const name = "james";
     const e = new Employee(name);
-    expect(typeof(e)).toBe("name");
+    expect(e.name).toBe(name);
 });
 
 test("set id via constructor argument", () => {
@@ -20,13 +20,13 @@ test("set id via constructor argument", () => {
 test("set email through constructor argument", () => {
     const testValue = "test@test.com"
     const e = new Employee('foo', 1, testValue)
-    expect(e.email).tobe()
+    expect(e.email).toBe(testValue)
 });
 
 test("get name via getName()", () => {
     const testValue = "james";
-    const e = new Employee(testValue)
-    expect(e.getname()).toBe(testValue)
+    const e = new Employee(testValue);
+    expect(e.getName()).toBe(testValue);
 });
 
 test("get id via getId()", () => {
@@ -43,8 +43,3 @@ test("get email via getEmail()", () => {
 
 });
 
-test("getRole() should return \"Employee\"", () => {
-    const testValue = "Employee";
-    const e = new Employee("james",1, "test@test.com");
-    expect(e.getRole()).toBe(testValue);
-});
